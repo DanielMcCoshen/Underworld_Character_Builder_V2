@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Underworld_Character_Builder_V2.iml" filepath="$PROJECT_DIR$/.idea/Underworld_Character_Builder_V2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/char builder/char builder.iml" filepath="$PROJECT_DIR$/char builder/char builder.iml" />
     </modules>
   </component>
 </project>
