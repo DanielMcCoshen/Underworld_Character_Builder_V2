@@ -9,4 +9,11 @@ public class RacialAbility extends Skill{
         super(name, new int[]{0,0,0,0,0,0}, description, null);
         this.cost = cost;
     }
+
+    public int getCost(){
+        return cost;
+    }
+    public int getCost(Class c){
+        return getCost();
+    }
 }

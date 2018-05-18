@@ -17,5 +17,11 @@ public class Race implements Serializable{
     public RacialAbility getDisadvantage(){
         return disadvantage;
     }
+    public int getMaxRacialPurchases(){
+        return maxRacialPurchases;
+    }
+    public RacialAbility getPurchased(){
+        return purchased;
+    }
 
 }

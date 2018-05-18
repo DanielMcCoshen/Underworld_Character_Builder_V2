@@ -3,6 +3,7 @@ package Model;
 import sun.awt.image.ImageWatched;
 
 import java.io.Serializable;
+import java.security.InvalidParameterException;
 import java.util.LinkedList;
 
 /**
@@ -31,21 +32,29 @@ public class UwCharacter implements Serializable{
 
         this.skills = new LinkedList<>();
 
-        Skill racialAutomatic = charRace.getAutomatic();
+        RacialAbility racialAutomatic = charRace.getAutomatic();
         freeCP -= racialAutomatic.getCost(charClass);
         racialAutomatic.effect(this);
         skills.add(racialAutomatic);
-        Skill racialDisadvantage = charRace.getDisadvantage();
+        RacialAbility racialDisadvantage = charRace.getDisadvantage();
         racialDisadvantage.effect(this);
         skills.add(racialDisadvantage);
-
-        skills.add(racialAutomatic);
     }
 
-    public void purchase(Skill s){
-
+    public void purchase(Skill s) throws IllegalArgumentException{
+        if (!getPurchaseable().contains(s)){
+            throw new IllegalArgumentException("attempted to purchase an unavailable skill");
+        }
+        RacialAbility ability = race.getPurchased();
+        racialPurchases++;
+        ability.effect(this);
+        freeCP -= ability.getCost();
+        skills.add(ability);
     }
     public void purchaseRacial(){
+        if (racialPurchases >= race.getMaxRacialPurchases()){
+            throw new IllegalStateException("already bought max racial purchases");
+        }
 
     }
     public LinkedList<Skill> getPurchaseable(){
