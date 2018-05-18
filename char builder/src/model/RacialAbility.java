@@ -13,7 +13,7 @@ public class RacialAbility extends Skill{
     public int getCost(){
         return cost;
     }
-    public int getCost(Class c){
+    public int getCost(CharClass c){
         return getCost();
     }
 }

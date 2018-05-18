@@ -1,25 +1,27 @@
 package model;
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Daniel McCoshen on 17/01/18.
  */
 public class Skill implements Serializable{
     String name;
-    int[] costs;
+    Map<String, Integer> costs;
     String description;
-    LinkedList<Skill> prerequisites;
+    List<String> prerequisites;
 
-    public Skill(String name, int[] costs, String description, LinkedList<Skill> prerequisites){
+    public Skill(String name, Map costs, String description, LinkedList<String> prerequisites){
         this.name = name;
         this.costs = costs;
         this.description = description;
         this.prerequisites = prerequisites;
     }
 
-    public int getCost(Class charClass){
-        return costs[charClass.getID()];
+    public int getCost(CharClass charClass){
+        return costs.get(charClass.getName());
     }
     public String getName(){
         return name;
@@ -27,10 +29,7 @@ public class Skill implements Serializable{
     public String getDescription(){
         return description;
     }
-    public LinkedList<Skill> getPrerequisites(){
-        return prerequisites;
-    }
-    public void effect(UwCharacter pChar){
-        return;
+    public boolean hasPrereq(Skill s){
+        return prerequisites.contains(s.getName());
     }
 }

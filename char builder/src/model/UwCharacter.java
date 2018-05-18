@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Created by Daniel McCoshen on 18/01/18.
  */
 public class UwCharacter implements Serializable{
-    private Class charClass;
+    private CharClass charClass;
     private Race race;
     private LinkedList<Skill> skills;
     private String name;
@@ -17,7 +17,7 @@ public class UwCharacter implements Serializable{
     private int freeCP;
     private int racialPurchases;
 
-    public UwCharacter(String name, String truename, Class charClass, Race charRace){
+    public UwCharacter(String name, String truename, CharClass charClass, Race charRace){
         this.charClass = charClass;
         this.race = charRace;
         this.name = name;
