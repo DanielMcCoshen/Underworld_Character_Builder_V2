@@ -1,9 +1,6 @@
-package Model;
-
-import sun.awt.image.ImageWatched;
+package model;
 
 import java.io.Serializable;
-import java.security.InvalidParameterException;
 import java.util.LinkedList;
 
 /**
